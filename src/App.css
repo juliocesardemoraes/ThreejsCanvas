@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Outfit", sans-serif;
+  background: #222;
+}
+
+label,
+p {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 90px;
+  margin-top: 0.25em;
+  max-width: 50%;
+  margin: auto;
+  color: #fff;
+}
+
+.webgl {
+  width: 50vw;
+  max-height: 50vh;
+  margin-top: 1em;
+  border-radius: 1em;
+  min-width: 400px;
+  max-width: 800px;
+}
+
+.cards {
+  background: #6f5de7;
+  width: 50vw;
+  padding-top: 2.8em;
+  border-radius: 1em;
+  padding-bottom: 1em;
+  min-width: 400px;
+  max-width: 800px;
+}
+
+.cards div {
+  min-height: 100px;
+  margin: 0 1em 1em 1em;
+  font-size: 22px;
+  font-weight: 600;
+  border: 1px black;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 1em;
+}
