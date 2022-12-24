@@ -19,6 +19,7 @@ export default function getThreeText(scene, THREE) {
     const textMaterial = new THREE.MeshBasicMaterial();
     const text = new THREE.Mesh(textGeometry, textMaterial);
     text.position.x -= 1.15;
+    text.name = "3dRenderedName";
     scene.add(text);
   });
 }
