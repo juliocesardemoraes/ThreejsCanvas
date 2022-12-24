@@ -1,15 +1,17 @@
-import * as THREE from "three";
 import { OrbitControls } from "../../../node_modules/three/examples/jsm/controls/OrbitControls.js";
 
 import getThreeText from "./threejsprojects/threeJsText";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { render } from "react-dom";
+import * as THREE from "three";
 
 //import * as dat from "lil-gui";
 //const gui = new dat.GUI();
 
-const canvasSetup = (canvasReference: HTMLCanvasElement) => {
-  const scene = new THREE.Scene();
-
+const canvasSetup = (
+  canvasReference: HTMLCanvasElement,
+  scene: THREE.Scene
+) => {
   const canvas = canvasReference;
 
   const sizes = {
@@ -28,10 +30,6 @@ const canvasSetup = (canvasReference: HTMLCanvasElement) => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   });
 
-  getThreeText(scene, THREE);
-
-  // CAMERA
-
   const camera = new THREE.PerspectiveCamera(
     50,
     sizes.width / sizes.height,
@@ -44,8 +42,6 @@ const canvasSetup = (canvasReference: HTMLCanvasElement) => {
 
   const controls = new OrbitControls(camera, canvas);
   controls.enableDamping = true;
-
-  // RENDERER
 
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
@@ -60,21 +56,21 @@ const canvasSetup = (canvasReference: HTMLCanvasElement) => {
     window.requestAnimationFrame(gameLoop);
   };
 
-  const render3dCanvas = () => {
-    console.log("AQ");
-  };
-
   gameLoop();
 };
 
-export default function CanvasThreeJs() {
-  const canvasReference = React.createRef<HTMLCanvasElement>();
+interface ICanvasProps {
+  canvasReference: React.RefObject<HTMLCanvasElement>;
+  scene: THREE.Scene;
+}
+
+export default function CanvasThreeJs(props: ICanvasProps) {
+  const { canvasReference, scene } = props;
 
   useEffect(() => {
-    if (canvasReference.current) canvasSetup(canvasReference.current);
+    if (canvasReference.current) canvasSetup(canvasReference.current, scene);
   }, [canvasReference]);
 
-  //canvasSetup(canvaReference);
   return (
     <>
       <canvas className="webgl" ref={canvasReference}></canvas>
