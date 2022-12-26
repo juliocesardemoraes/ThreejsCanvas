@@ -36,6 +36,9 @@ const canvasSetup = (
     sizes.width = window.innerWidth / 2;
     sizes.height = window.innerHeight / 2;
 
+    if (sizes.width > 800) sizes.width = 800;
+    if (sizes.width < 325) sizes.width = 325;
+
     camera.aspect = sizes.width / sizes.height;
     camera.updateProjectionMatrix();
 
@@ -50,7 +53,7 @@ const canvasSetup = (
     100
   );
 
-  camera.position.set(0, 0, 3);
+  camera.position.set(0, 0, 5);
   scene.add(camera);
 
   const controls = new OrbitControls(camera, canvas);
