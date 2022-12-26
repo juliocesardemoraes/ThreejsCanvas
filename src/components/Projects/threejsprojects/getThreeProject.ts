@@ -1,15 +1,9 @@
 import * as THREE from "three";
 
-// enum Projects {
-//   threeJsText = ,
-// }
+// IMPORTING PROJECTS
+import getThreeText from "./projects/threeJsText";
 
-interface IProjectsProps {
-  scene: THREE.scene;
-  threeJsProject: String;
-}
-
-import getThreeText from "./threeJsText";
+type ProjectName = "threeJsText" | "threeJsGame";
 
 /**
  *
@@ -17,8 +11,8 @@ import getThreeText from "./threeJsText";
  * @param String The threejs project to render
  */
 export default function getThreeProject(
-  scene: THREE.scene,
-  projectName: string
+  scene: THREE.Scene,
+  projectName: ProjectName
 ) {
   if (projectName === "threeJsText") getThreeText(scene, THREE);
 }
