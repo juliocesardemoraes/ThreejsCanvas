@@ -19,15 +19,6 @@ p {
   text-align: center;
 }
 
-.webgl {
-  width: 50vw;
-  max-height: 50vh;
-  margin-top: 1em;
-  border-radius: 1em;
-  min-width: 325px;
-  max-width: 800px;
-}
-
 .main__container {
   display: flex;
   justify-content: center;

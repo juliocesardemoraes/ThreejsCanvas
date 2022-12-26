@@ -1,0 +1,8 @@
+.webgl {
+  width: 50vw;
+  min-height: 50vh;
+  margin-top: 1em;
+  border-radius: 1em;
+  min-width: 325px;
+  max-width: 800px;
+}
