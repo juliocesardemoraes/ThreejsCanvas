@@ -1,18 +1,31 @@
 import { OrbitControls } from "../../../node_modules/three/examples/jsm/controls/OrbitControls.js";
-
-import getThreeText from "./threejsprojects/threeJsText";
-import React, { useRef, useEffect, useState } from "react";
-import { render } from "react-dom";
+import React, { useEffect } from "react";
 import * as THREE from "three";
+import "./index.css";
 
-//import * as dat from "lil-gui";
-//const gui = new dat.GUI();
+interface ICanvasProps {
+  canvasReference: React.RefObject<HTMLCanvasElement>;
+  scene: THREE.Scene;
+}
 
+/**
+ * Setup for the threejs canvas
+ * @param {HTMLCanvasElement} canvasReference Canvas reference for rendering threejs elements
+ * @param {THREE.Scene} scene Scene created for handling threejs interactions
+ */
 const canvasSetup = (
   canvasReference: HTMLCanvasElement,
   scene: THREE.Scene
 ) => {
   const canvas = canvasReference;
+
+  canvas.addEventListener("dblclick", () => {
+    if (!document.fullscreenElement) {
+      canvas.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  });
 
   const sizes = {
     width: canvas.clientWidth,
@@ -58,11 +71,6 @@ const canvasSetup = (
 
   gameLoop();
 };
-
-interface ICanvasProps {
-  canvasReference: React.RefObject<HTMLCanvasElement>;
-  scene: THREE.Scene;
-}
 
 export default function CanvasThreeJs(props: ICanvasProps) {
   const { canvasReference, scene } = props;
