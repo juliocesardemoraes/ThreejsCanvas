@@ -16,17 +16,20 @@ export default function getThreeText(scene, THREE) {
   });
 
   fontLoader.load("fonts/outfitTR.json", (fontDisplay) => {
-    const textGeometry = new TextGeometry("Júlio Moraes\nWeb Developer", {
-      font: fontDisplay,
-      size: 0.3,
-      height: 0.2,
-      curveSegments: 12,
-      bevelEnabled: true,
-      bevelThickness: 0.025,
-      bevelSize: 0.025,
-      bevelOffset: 0,
-      bevelSegments: 4,
-    });
+    const textGeometry = new TextGeometry(
+      "Júlio Moraes\nWeb Developer\nReact/Node",
+      {
+        font: fontDisplay,
+        size: 0.3,
+        height: 0.2,
+        curveSegments: 12,
+        bevelEnabled: true,
+        bevelThickness: 0.025,
+        bevelSize: 0.025,
+        bevelOffset: 0,
+        bevelSegments: 4,
+      }
+    );
 
     const text = new THREE.Mesh(textGeometry, meshcapMaterial);
     text.position.x -= 1.15;
