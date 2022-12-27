@@ -1,6 +1,7 @@
-## THREEJS
+## THREEJSCanvas
 
-This is my project with Threejs projects in it.
+In this project I created a canvas for rendering all my threejs projects. It's a simple way to showcase them.
+
 
 ## Setup
 
