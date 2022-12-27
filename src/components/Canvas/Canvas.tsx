@@ -1,4 +1,4 @@
-import { OrbitControls } from "../../../node_modules/three/examples/jsm/controls/OrbitControls.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import React, { useEffect } from "react";
 import * as THREE from "three";
 import "./index.css";
@@ -18,7 +18,6 @@ const canvasSetup = (
   scene: THREE.Scene
 ) => {
   const canvas = canvasReference;
-
   canvas.addEventListener("dblclick", () => {
     if (!document.fullscreenElement) {
       canvas.requestFullscreen();

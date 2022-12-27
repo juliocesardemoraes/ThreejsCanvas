@@ -1,7 +1,12 @@
 import "./index.css";
+import * as THREE from "three";
+
+interface IPropsList {
+  scene: THREE.Scene;
+}
 
 import Button from "../Button/Button";
-export default function List({ scene }) {
+export default function List({ scene }: IPropsList) {
   return (
     <>
       <div className="main__container__cards">

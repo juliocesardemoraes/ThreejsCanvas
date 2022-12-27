@@ -1,12 +1,14 @@
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
-import { FontLoader } from "three/examples/jsm/loaders/fontloader";
+import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 
 const randomNum = () => {
   return (Math.random() - 0.5) * 10;
 };
 
-export default function getThreeText(scene, THREE) {
-  console.time("donuts");
+export default function getThreeText(
+  scene: THREE.Scene,
+  THREE: typeof import("three")
+) {
   const textureLoader = new THREE.TextureLoader();
   const matcapTexture = textureLoader.load("matcap/8.png");
 
@@ -38,7 +40,8 @@ export default function getThreeText(scene, THREE) {
     scene.add(text);
   });
 
-  const donut = new THREE.TorusBufferGeometry(0.3, 0.2, 20, 45);
+  //ADD DONUTS
+  const donut = new THREE.TorusGeometry(0.3, 0.2, 20, 45);
 
   for (let i = 0; i < 100; i++) {
     const donutMesh = new THREE.Mesh(donut, meshcapMaterial);
@@ -49,5 +52,17 @@ export default function getThreeText(scene, THREE) {
     donutMesh.scale.set(randomNumber, randomNumber, randomNumber);
     scene.add(donutMesh);
   }
-  console.timeEnd("donuts");
+
+  //ADD SQUARES
+  const square = new THREE.BoxGeometry(0.25, 0.25, 0.25);
+
+  for (let i = 0; i < 100; i++) {
+    const squareMesh = new THREE.Mesh(square, meshcapMaterial);
+    squareMesh.position.set(randomNum(), randomNum(), randomNum());
+    squareMesh.rotation.set(randomNum(), randomNum(), randomNum());
+
+    const randomNumber = Math.random();
+    squareMesh.scale.set(randomNumber, randomNumber, randomNumber);
+    scene.add(squareMesh);
+  }
 }
